@@ -2,9 +2,9 @@ import EventForm from "@/components/shared/EventForm"
 import { auth } from "@clerk/nextjs";
 
 const CreateEvent = () => {
-  const { sessionClaims } = auth();
+  const { sessionClaims } = auth(); //render the id of the user currently logged in
 
-  const userId = sessionClaims?.userId as string;
+  const userId = sessionClaims?.userId as string; //extract userId from session
 
   return (
     <>
@@ -13,7 +13,7 @@ const CreateEvent = () => {
       </section>
 
       <div className="wrapper my-8">
-        <EventForm userId={userId} type="Create" />
+        <EventForm userId={userId} type="Create" /> {/* pass in the userId and type called create */}
       </div>
     </>
   )
